@@ -1,2 +1,1 @@
-Var script=document.querySelector("script")
-script.remove();
+document.write("hacked");

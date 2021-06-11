@@ -1,1 +1,1 @@
-document.write("hacked");
+alert("hacked")

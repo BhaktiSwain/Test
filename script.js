@@ -1,4 +1,2 @@
-var scripts=document.querySelectorAll("script");
-scripts.forEach(function(script){
-	script.remove();
-}
+Var script=document.querySelector("script")
+script.remove();

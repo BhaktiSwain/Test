@@ -1,0 +1,75 @@
+<html>
+<title>GiveAway of Offer Codes-Recieved from Phonepe,Paytm,Gpay etc.</title>
+<style type="text/css">
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table td, table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+table tr:nth-child(even){background-color: #f2f2f2;}
+
+table tr:hover {background-color: #ddd;}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+<body>
+<table>
+<tr>
+	<th>Platform</th>
+	<th>Offer</th>
+	<th>Code</th>
+	<th>Info</th>
+</tr>
+</table>
+
+</body>
+<script type="text/javascript">
+	let url="https://bhaktiswain.github.io/Test/data.json"
+	let request=new XMLHttpRequest();
+	
+	let table=document.querySelector("table");
+	
+	request.open('GET',url);
+	
+	function showdata(data){
+		var obj=JSON.parse(data.responseText);
+		for(let i=0;i<obj.length;i++){
+			let code=`
+			<tr>
+			<td>${obj[i].platform}</td>
+			<td>${obj[i].offer}</td>
+			<td>${obj[i].code}</td>
+			<td><a href="#">Click here...</a></td>
+			</tr>`
+			
+			table.insertAdjacentHTML("beforeend",code)
+		}
+	}
+	
+	request.onload= function()
+	{
+		if(this.status===200){
+			showdata(this);
+		}
+		
+		else{
+			document.write("some error occured!!")
+			console.log(this.status)
+		}
+	}
+	
+	request.send()
+</script>
+</html>
